@@ -10,7 +10,7 @@
 
 ## Run backend
 
-```
+```bash
 # Install dependencies
 npm install
 
@@ -20,7 +20,7 @@ npm run dev
 
 ## Run tests
 
-```
+```bash
 npm run test
 ```
 
