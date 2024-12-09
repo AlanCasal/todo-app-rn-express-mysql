@@ -6,47 +6,45 @@
 
 1. Functionality:
 
-   - Users can create, edit, and delete to-do items.
-   - Users can mark to-do items as complete.
-   - The app should display a list of all to-do items.
+   - Users can create, edit, mark as completed, and delete to-do items
+   - Users can mark to-do items as complete
+   - The app should display a list of all to-do items
 
 2. Technical Specifications:
-   - Frontend: React Native with TypeScript.
+   - Frontend: React Native with TypeScript
    - Backend: Node.js with a backend framework of your choice
    - Database: Choose a database suitable for your backend framework
    - Authentication: Implement simple session-based authentication. No need for detailed user profiles (name, last name, email are not required)
-   - Concurrency: The app should support multiple users concurrently.
-   - Cross-Platform Compatibility: The app must compile and run on Android, iOS, and web.
+   - Concurrency: The app should support multiple users concurrently
+   - Cross-Platform Compatibility: The app must compile and run on Android, iOS, and web
 
 ## Pre-requisites
 
-- Docker and docker compose installed ([download link](https://www.docker.com/)).
-- No services running on localhost port 8080, 8081 and 3307.
+- Docker and docker compose ([download](https://www.docker.com/))
+- Free ports: 8080, 8081, and 3307
 
-## Run APP with Docker (web version only)
+## Run Web Version (Docker)
 
-```
-# Run app
+```bash
+# Start app
 docker compose up -d
-```
 
-- Now you can open your browser and go to http://localhost:8081
-- In some cases the first time you run the app with docker it hangs out with a loading spinner. If you reload the browser it'll work correctly
+# Access at http://localhost:8081
+# Note: If loading spinner hangs, refresh the browser
 
-```
 # Stop app
 docker compose down -v
 ```
 
+## Run Mobile Version
+
+Follow instructions in [mobile README](client/todo-app/README.md)
+
 ## Run backend tests with Docker (front end tests coming soon!)
 
-```
+```bash
 docker-compose run backend-test
 ```
-
-## Run APP with iOS Simulator, Android emulator or Android device
-
-- follow instructions in client/todo-app/[README.md](/client//todo-app/README.md) file
 
 ## Features
 
@@ -55,13 +53,21 @@ docker-compose run backend-test
 - mark a task as cmopleted by clicking/tapping the checkbox
 - delete a task by clicking/tapping the trash bin icon
 
-## Technology
+## Technical Stack
 
-- Programming languaje: Typescript
-- APP Frameworks: React Native with Expo, Node, Express
-- Database: MySQL
-- Containers: Docker, Docker-compose
+### Frontend
 
-## More details
+- React Native with TypeScript
+- Expo for cross-platform development
+- AsyncStorage for local data persistence
 
-- more details can be found in client/todo-app/[README.md](/client//todo-app/README.md) and in server/[README.md](/server/README.md)
+### Backend
+
+- Node.js with Express
+- MySQL database
+- UUID for session management
+
+## Detailed Documentation
+
+- [Mobile Client Documentation](client/todo-app/README.md)
+- [Backend Documentation](server/README.md)
