@@ -23,7 +23,7 @@
 - Docker and docker compose installed ([download link](https://www.docker.com/)).
 - No services running on localhost port 8080, 8081 and 3307.
 
-### Run APP with Docker (web version only)
+## Run APP with Docker (web version only)
 
 ```
 # Run app
@@ -38,17 +38,17 @@ docker compose up -d
 docker compose down -v
 ```
 
-### Run backend tests with Docker (front end tests coming soon!)
+## Run backend tests with Docker (front end tests coming soon!)
 
 ```
 docker-compose run backend-test
 ```
 
-### Run APP with iOS Simulator, Android emulator or Android device
+## Run APP with iOS Simulator, Android emulator or Android device
 
 - follow instructions in /client/todo-app/README.md file
 
-### Features
+## Features
 
 - create tasks items using the input at the bottom and the + button to submit
 - edit tasks titles by simply clicking/tapping on the task item and typing. When tapping somewhere else app will save the changes
@@ -62,6 +62,6 @@ docker-compose run backend-test
 - Database: MySQL
 - Containers: Docker, Docker-compose
 
-### More details
+## More details
 
 - more details can be found in client/todo-app/[README.md](/client//todo-app/README.md) and in server/[README.md](/server/README.md)
