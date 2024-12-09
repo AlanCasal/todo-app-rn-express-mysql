@@ -1,0 +1,100 @@
+{
+	"root": true,
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended",
+		"plugin:import/recommended",
+		"airbnb-typescript/base",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"env": {
+		"es6": true,
+		"jest": true,
+		"node": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"project": "./tsconfig.json",
+		"ecmaFeatures": {
+			"arrowFunctions": true
+		}
+	},
+	"plugins": ["@typescript-eslint", "prettier", "import"],
+	"settings": {
+		"import/resolver": {
+			"typescript": {},
+			"node": {
+				"extensions": [".js", ".ts"],
+				"paths": ["./database", "./middlewares", "./routes", "./types"]
+			}
+		}
+	},
+	"rules": {
+		"@typescript-eslint/ban-ts-comment": "off",
+		"@typescript-eslint/ban-types": "off",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/no-duplicate-enum-values": "off",
+		"@typescript-eslint/no-empty-function": "warn",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/no-unused-vars": "warn",
+		"@typescript-eslint/no-use-before-define": "warn",
+		"import/no-named-as-default": "off",
+		"import/prefer-default-export": "off",
+		"no-console": "warn",
+		"no-constant-condition": "warn",
+		"no-extra-boolean-cast": "warn",
+		"no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+		"no-use-before-define": "off",
+		"object-curly-spacing": ["warn", "always"],
+		"prettier/prettier": ["error", { "endOfLine": "auto" }],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"": "never",
+				"js": "never",
+				"ts": "never"
+			}
+		],
+		"import/order": [
+			"error",
+			{
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"parent",
+					"sibling",
+					"index"
+				],
+				"alphabetize": { "order": "asc" }
+			}
+		],
+		"@typescript-eslint/naming-convention": [
+			"error",
+			{ "selector": "default", "format": ["camelCase"] },
+			{ "selector": "typeLike", "format": ["PascalCase"] },
+			{
+				"selector": "variable",
+				"modifiers": ["const"],
+				"format": ["camelCase", "UPPER_CASE"]
+			},
+			{
+				"selector": "property",
+				"format": ["camelCase", "UPPER_CASE", "snake_case"]
+			},
+			{
+				"selector": "objectLiteralProperty",
+				"format": ["camelCase", "UPPER_CASE"]
+			},
+			{
+				"selector": "enumMember",
+				"format": ["UPPER_CASE"]
+			}
+		]
+	}
+}
