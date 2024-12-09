@@ -46,7 +46,7 @@ docker-compose run backend-test
 
 ## Run APP with iOS Simulator, Android emulator or Android device
 
-- follow instructions in /client/todo-app/README.md file
+- follow instructions in client/todo-app/[README.md](/client//todo-app/README.md) file
 
 ## Features
 
