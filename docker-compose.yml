@@ -4,8 +4,8 @@ services:
       context: ./client/todo-app
       dockerfile: Dockerfile
     ports:
-      - "19006:19006"
-      - "8081:8081"
+      - '19006:19006'
+      - '8081:8081'
     environment:
       - EXPO_PUBLIC_API_URL=http://localhost:8080
     depends_on:
@@ -19,7 +19,7 @@ services:
       - ./server:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - "8080:8080"
+      - '8080:8080'
     environment:
       - PORT=8080
       - MYSQL_HOST=db
@@ -29,15 +29,40 @@ services:
     depends_on:
       - db
 
+  backend-test:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - PORT=8080
+      - MYSQL_HOST=db-test
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=todo_db_test
+    command: npm test
+    depends_on:
+      - db-test
+
   db:
     image: mysql:8.0
     ports:
-      - "3307:3306"
+      - '3307:3306'
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=todo_db
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./server/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  db-test:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=todo_db_test
+    volumes:
       - ./server/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
 volumes:

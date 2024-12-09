@@ -120,3 +120,10 @@ describe('Database Schema', () => {
 		});
 	});
 });
+
+afterAll(async () => {
+	// Close your database connection
+	await db.end();
+	// Wait a bit to ensure all connections are closed
+	await new Promise(resolve => setTimeout(resolve, 500));
+});

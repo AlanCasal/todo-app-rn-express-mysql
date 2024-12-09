@@ -11,6 +11,7 @@ import { Todo } from '../../utils/types';
 jest.mock('../../database/connection', () => ({
 	db: {
 		execute: jest.fn(),
+		end: jest.fn(),
 	},
 }));
 
@@ -179,4 +180,11 @@ describe('todoRepo', () => {
 			expect(result).toBe(true);
 		});
 	});
+});
+
+afterAll(async () => {
+	// Close your database connection
+	await db.end();
+	// Wait a bit to ensure all connections are closed
+	await new Promise(resolve => setTimeout(resolve, 500));
 });
