@@ -30,3 +30,5 @@ export const sanitizeInput = (input: string): string => {
 
 	return sanitized;
 };
+
+export const SESSION_TOKEN_KEY = 'sessionToken';

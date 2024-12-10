@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import { startSession, validateSession } from '@/src/api';
-import { ERROR_MESSAGES } from '@/src/utils';
+import { ERROR_MESSAGES, SESSION_TOKEN_KEY } from '@/src/utils';
 import { ErrorResponseData } from '@/src/utils/types';
 
 const RootLayout = () => {
@@ -17,13 +17,13 @@ const RootLayout = () => {
 	const handleStartSession = useCallback(async () => {
 		const response = await startSession();
 
-		await AsyncStorage.setItem('sessionToken', response.data.token);
+		await AsyncStorage.setItem(SESSION_TOKEN_KEY, response.data.token);
 
 		setIsSessionInitialized(true);
 	}, []);
 
 	const handleValidateSession = useCallback(async () => {
-		const token = await AsyncStorage.getItem('sessionToken');
+		const token = await AsyncStorage.getItem(SESSION_TOKEN_KEY);
 
 		if (!token) await handleStartSession();
 		else await validateSession();
@@ -36,8 +36,8 @@ const RootLayout = () => {
 			const defaultErrorMessage = ERROR_MESSAGES.INVALID_SESSION;
 
 			if (err.response?.status === 401) {
-				const token = await AsyncStorage.getItem('sessionToken');
-				if (token) await AsyncStorage.removeItem('sessionToken');
+				const token = await AsyncStorage.getItem(SESSION_TOKEN_KEY);
+				if (token) await AsyncStorage.removeItem(SESSION_TOKEN_KEY);
 
 				handleStartSession();
 				return;

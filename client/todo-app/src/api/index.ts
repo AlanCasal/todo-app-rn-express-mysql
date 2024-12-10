@@ -1,10 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { API_URL } from '../utils';
+import { API_URL, SESSION_TOKEN_KEY } from '../utils';
 import { ApiResponse, SessionToken, Todo, TodoUpdate } from '../utils/types';
 
 const getAuthHeaders = async () => {
-	const sessionToken = await AsyncStorage.getItem('sessionToken');
+	const sessionToken = await AsyncStorage.getItem(SESSION_TOKEN_KEY);
 	return { Authorization: sessionToken };
 };
 
