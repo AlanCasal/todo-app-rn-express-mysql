@@ -30,7 +30,7 @@
 docker compose up -d
 
 # Access at http://localhost:8081
-# Note: If loading spinner hangs, refresh the browser
+# Note: on rare occasions app hangs on first launch with docker; just refresh the browser and app will work normally
 
 # Stop app
 docker compose down -v

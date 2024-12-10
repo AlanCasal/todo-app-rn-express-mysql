@@ -25,6 +25,7 @@ npx expo start
 # Follow the expo terminal instructions:
 # - Press 'a' to open Android emulator
 # - Press 'i' to open iOS simulator
+# - Press 'w' to open browser
 ```
 
 ## Features
