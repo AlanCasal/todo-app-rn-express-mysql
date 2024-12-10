@@ -21,7 +21,11 @@
 ## Pre-requisites
 
 - Docker and docker compose ([download](https://www.docker.com/))
-- Free ports: 8080, 8081, and 3307
+- Free ports:
+  - 8080 (Backend API)
+  - 8081 (Frontend web)
+  - 3307 (MySQL)
+  - 19006 (Expo server)
 
 ## Run Web Version (Docker)
 
