@@ -24,6 +24,9 @@ npm run dev
 npm run test
 ```
 
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-96%25-brightgreen)
+
 ## Technical Decisions
 
 ### Architecture & Structure

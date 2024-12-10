@@ -30,3 +30,7 @@ web-build/
 # Project specific
 todo-app.code-workspace
 challenge.js
+
+# Test coverage
+coverage/
+**/coverage/

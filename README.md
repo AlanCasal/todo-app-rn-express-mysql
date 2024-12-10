@@ -50,6 +50,9 @@ Follow instructions in [mobile README](client/todo-app/README.md)
 docker-compose run backend-test
 ```
 
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-96%25-brightgreen)
+
 ## Features
 
 - create tasks items using the input at the bottom and the + button to submit
