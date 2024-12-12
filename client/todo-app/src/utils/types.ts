@@ -11,6 +11,7 @@ export type DeleteTodoHandler = (id: Todo['id']) => void;
 export type AddTodoHandler = (title: Todo['title']) => Promise<boolean>;
 
 export type ApiResponse<T> = {
+	status: number;
 	data: T;
 };
 
