@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./screenshot.png" width=800 title="ui design">
+  <img src="./client/todo-app/assets/images/app-mockup.jpeg" width="1200" title="ui design">
 </p>
 
 # Todo app challenge
